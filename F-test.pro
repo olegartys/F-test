@@ -12,18 +12,19 @@ TARGET = untitled
 TEMPLATE = app
 CONFIG += c++11
 
-SOURCES += main.cpp\
-        mainwindow.cpp \
-    dragarea.cpp \
-    selection.cpp \
-    fishertablemodel.cpp
+SOURCES += src/main.cpp\
+        src/mainwindow.cpp \
+    src/dragarea.cpp \
+    src/selection.cpp \
+    src/fishertablemodel.cpp
 
 
-HEADERS  += mainwindow.h \
-    dragarea.h \
-    selection.h \
-    fishertable.h \
-    fishertablemodel.h
+HEADERS  += src/mainwindow.h \
+    src/dragarea.h \
+    src/selection.h \
+    src/fishertable.h \
+    src/fishertablemodel.h
 
 
-FORMS    += mainwindow.ui
+FORMS    += src/mainwindow.ui
+

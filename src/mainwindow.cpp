@@ -39,11 +39,28 @@ MainWindow::MainWindow(QWidget *parent) :
 }
 
 void MainWindow::showInfo() {
-    double fMeasured = std::max(selection1->getDispersion(), selection2->getDispersion())/
-                       std::min(selection1->getDispersion(), selection2->getDispersion());
+//    double fMeasured = std::max(selection1->getDispersion(), selection2->getDispersion())/
+//                       std::min(selection1->getDispersion(), selection2->getDispersion());
 
-    double fTable = table.get(std::max(selection1->getElementsCount()-1, selection2->getElementsCount()-1),
-                              std::min(selection1->getElementsCount()-1, selection2->getElementsCount()-1));
+//    double fTable = table.get(std::max(selection1->getElementsCount()-1, selection2->getElementsCount()-1),
+//                              std::min(selection1->getElementsCount()-1, selection2->getElementsCount()-1));
+
+    double max, min, kMax, kMin;
+    max = min = kMax = kMin = 0;
+    if (selection1->getDispersion() > selection2->getDispersion()) {
+        max = selection1->getDispersion();
+        kMax = selection1->getElementsCount();
+        min = selection2->getDispersion();
+        kMin = selection2->getElementsCount();
+    } else {
+        max = selection2->getDispersion();
+        kMax = selection2->getElementsCount();
+        min = selection1->getDispersion();
+        kMin = selection1->getElementsCount();
+    }
+
+    double fMeasured = max / min;
+    double fTable = table.get(kMax-1, kMin-1);
 
     QString result;
     if (fMeasured < fTable)

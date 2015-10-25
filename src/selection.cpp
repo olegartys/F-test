@@ -28,8 +28,8 @@ Selection::Selection(QFile* f, bool rememberData)
         qDebug() << d;
     }
 
-    average = sum / elementsCount;
-    dispersion = _s/elementsCount + average*average;
+    average = sum / (elementsCount);
+    dispersion = _s/(elementsCount) - average*average;
 
 }
 
